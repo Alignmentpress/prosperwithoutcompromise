@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AccessGate from "@/components/AccessGate";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -51,9 +52,15 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} antialiased bg-navy-950 text-foreground`}
       >
-        {!isComingSoon && <Navbar />}
-        <main className="min-h-screen">{children}</main>
-        {!isComingSoon && <Footer />}
+        {isComingSoon ? (
+          <main className="min-h-screen">{children}</main>
+        ) : (
+          <AccessGate>
+            <Navbar />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </AccessGate>
+        )}
       </body>
     </html>
   );
