@@ -1,16 +1,11 @@
-import ComingSoon from "@/components/ComingSoon";
 import Image from "next/image";
 import Link from "next/link";
 import BookShowcase from "@/components/BookShowcase";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import type { Locale } from "@/lib/i18n";
 
-const isComingSoon = process.env.NEXT_PUBLIC_SITE_MODE === "coming-soon";
-
-export default function Home() {
-  if (isComingSoon) {
-    return <ComingSoon />;
-  }
-
+export default function HomePage({ basePath = "" }: { basePath?: string }) {
+  const locale: Locale = (basePath.split("/")[1] as Locale) || "en";
   return (
     <>
       {/* Hero Section */}
@@ -44,13 +39,13 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="/book"
+                  href={`${basePath}/book`}
                   className="px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-semibold rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg shadow-gold-500/20 text-base"
                 >
                   Get the Book
                 </Link>
                 <Link
-                  href="/about"
+                  href={`${basePath}/about`}
                   className="px-8 py-4 border border-white/10 text-white rounded-lg hover:bg-white/5 hover:border-gold-400/30 transition-all duration-300 text-base"
                 >
                   Meet the Author
@@ -78,7 +73,7 @@ export default function Home() {
       </section>
 
       {/* Book Showcase */}
-      <BookShowcase />
+      <BookShowcase locale={locale} />
 
       {/* Core Principles Section */}
       <section className="py-24 px-4 relative">

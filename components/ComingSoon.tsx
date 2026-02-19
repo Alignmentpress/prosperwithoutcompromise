@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Logo from "@/components/Logo";
 import LeadCaptureForm from "./LeadCaptureForm";
 
 export default function ComingSoon() {
@@ -11,11 +12,7 @@ export default function ComingSoon() {
       <div className="relative z-10 max-w-2xl mx-auto text-center">
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 mb-12">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
-            <span className="text-navy-950 font-serif font-bold text-lg">
-              A
-            </span>
-          </div>
+          <Logo size="md" />
           <span className="font-serif text-2xl tracking-wide text-white">
             Alignment Press
           </span>

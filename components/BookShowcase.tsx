@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Locale } from "@/lib/i18n";
 
-export default function BookShowcase() {
+interface BookShowcaseProps {
+  locale?: Locale;
+}
+
+export default function BookShowcase({ locale = "en" }: BookShowcaseProps) {
   return (
     <section className="py-24 px-4 relative overflow-hidden">
       {/* Background */}
@@ -64,7 +69,7 @@ export default function BookShowcase() {
             </div>
 
             <Link
-              href="/book"
+              href={`/${locale}/book`}
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-semibold rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg shadow-gold-500/20"
             >
               Learn More About the Book

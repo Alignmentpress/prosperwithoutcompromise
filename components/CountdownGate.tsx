@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Logo from "@/components/Logo";
 import { GATE_STORAGE_KEY } from "@/lib/gate";
 
 const LAUNCH_DATE = new Date("2026-02-18T00:00:00");
@@ -85,9 +86,7 @@ export default function CountdownGate() {
       <div className="relative z-10 max-w-2xl mx-auto w-full text-center">
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
-            <span className="text-navy-950 font-serif font-bold text-lg">A</span>
-          </div>
+          <Logo size="md" />
           <span className="font-serif text-2xl tracking-wide text-white">
             Alignment Press
           </span>

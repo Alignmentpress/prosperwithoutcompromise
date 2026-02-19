@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import AccessGate from "@/components/AccessGate";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,27 +17,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Alignment Press | Prosper Without Compromise",
   description:
-    "Discover 'Prosper Without Compromise' by Kevin Adou — Faith, Strategy, and the Inner Alignment That Sustains Abundance. A book for conscious builders ready to align purpose with prosperity.",
-  keywords: [
-    "Prosper Without Compromise",
-    "Kevin Adou",
-    "faith and business",
-    "alignment",
-    "abundance",
-    "prosperity",
-    "personal development",
-    "spiritual growth",
-  ],
-  openGraph: {
-    title: "Alignment Press | Prosper Without Compromise by Kevin Adou",
-    description:
-      "Faith, Strategy, and the Inner Alignment That Sustains Abundance",
-    type: "website",
-    images: ["/images/book-cover.jpg"],
+    "Discover 'Prosper Without Compromise' by Kevin Adou — Faith, Strategy, and the Inner Alignment That Sustains Abundance.",
+  icons: {
+    icon: "/images/Alignment%20-Press%20Logo.jpeg",
   },
 };
-
-const isComingSoon = process.env.NEXT_PUBLIC_SITE_MODE === "coming-soon";
 
 export default function RootLayout({
   children,
@@ -48,19 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${playfair.variable} antialiased bg-navy-950 text-foreground`}
       >
-        {isComingSoon ? (
-          <main className="min-h-screen">{children}</main>
-        ) : (
-          <AccessGate>
-            <Navbar />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
-          </AccessGate>
-        )}
+        {children}
       </body>
     </html>
   );
