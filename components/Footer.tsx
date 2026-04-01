@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 
@@ -23,9 +24,6 @@ export default function Footer({ locale }: FooterProps) {
     href: `${base}/${path}`,
     label: t.nav[key],
   }));
-
-  const otherLocale: Locale = locale === "en" ? "fr" : "en";
-  const switchHref = `/${otherLocale}`;
 
   return (
     <footer className="bg-navy-950 border-t border-white/5">
@@ -51,10 +49,8 @@ export default function Footer({ locale }: FooterProps) {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href={switchHref} className="text-gray-400 text-sm hover:text-gold-400 transition-colors">
-                  {locale === "en" ? "FR" : "EN"}
-                </Link>
+              <li className="pt-1">
+                <LanguageSwitcher locale={locale} variant="footer" />
               </li>
             </ul>
           </div>

@@ -3,6 +3,11 @@ import { defaultLocale, locales, type Locale } from "@/lib/i18n";
 
 const localePrefix = new RegExp(`^/(${locales.join("|")})(/|$)`);
 
+/**
+ * Resolves locale only for un-prefixed URLs (e.g. `/` or legacy `/book`).
+ * Order: NEXT_LOCALE cookie, then Accept-Language (fr* → fr), else defaultLocale.
+ * Paths that already include /en/ or /fr/ are not renegotiated—deep links stay as-is.
+ */
 function getPreferredLocale(request: NextRequest): Locale {
   const cookie = request.cookies.get("NEXT_LOCALE")?.value;
   if (cookie && locales.includes(cookie as Locale)) return cookie as Locale;

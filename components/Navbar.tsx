@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 
@@ -31,11 +32,6 @@ export default function Navbar({ locale }: NavbarProps) {
     label: t.nav[key],
   }));
 
-  // Switch to other locale, keeping same path (e.g. /en/coaching -> /fr/coaching)
-  const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}(\/|$)/, "$1") || "";
-  const otherLocale: Locale = locale === "en" ? "fr" : "en";
-  const switchHref = `/${otherLocale}${pathWithoutLocale}`;
-
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-950/80 backdrop-blur-xl border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,18 +58,12 @@ export default function Navbar({ locale }: NavbarProps) {
               </Link>
             ))}
             <Link
-              href={switchHref}
-              className="px-3 py-2 text-sm font-medium text-gray-400 hover:text-gold-400 transition-colors"
-              aria-label={locale === "en" ? "Switch to French" : "Passer en anglais"}
-            >
-              {locale === "en" ? "FR" : "EN"}
-            </Link>
-            <Link
               href={`/${locale}/coaching`}
               className="px-5 py-2.5 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 text-sm font-semibold rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg shadow-gold-500/20"
             >
               {t.nav.bookASession}
             </Link>
+            <LanguageSwitcher locale={locale} variant="nav" />
           </div>
 
           <button
@@ -107,13 +97,6 @@ export default function Navbar({ locale }: NavbarProps) {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href={switchHref}
-              onClick={() => setIsOpen(false)}
-              className="block px-4 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-gold-400"
-            >
-              {locale === "en" ? "FR" : "EN"}
-            </Link>
             <div className="pt-4">
               <Link
                 href={`/${locale}/coaching`}
@@ -122,6 +105,9 @@ export default function Navbar({ locale }: NavbarProps) {
               >
                 {t.nav.bookASession}
               </Link>
+            </div>
+            <div className="px-4 py-3">
+              <LanguageSwitcher locale={locale} variant="nav" onNavigate={() => setIsOpen(false)} />
             </div>
           </div>
         </div>
