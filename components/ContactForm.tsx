@@ -96,7 +96,7 @@ export default function ContactForm({ t, locale }: ContactFormProps) {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 text-sm transition-all duration-300 focus:border-gold-400 focus:bg-white/[0.07]"
+                className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 transition-all duration-300 focus:border-gold-400 focus:bg-white/[0.07]"
               />
             </div>
             <div>
@@ -110,7 +110,7 @@ export default function ContactForm({ t, locale }: ContactFormProps) {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
-                className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 text-sm transition-all duration-300 focus:border-gold-400 focus:bg-white/[0.07]"
+                className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 transition-all duration-300 focus:border-gold-400 focus:bg-white/[0.07]"
               />
             </div>
             <div>
@@ -124,7 +124,7 @@ export default function ContactForm({ t, locale }: ContactFormProps) {
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 required
                 rows={6}
-                className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 text-sm transition-all duration-300 resize-none focus:border-gold-400 focus:bg-white/[0.07]"
+                className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 transition-all duration-300 resize-none focus:border-gold-400 focus:bg-white/[0.07]"
               />
             </div>
             <button

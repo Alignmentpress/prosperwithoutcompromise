@@ -14,13 +14,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const t = getTranslations(l);
 
   if (isComingSoon) {
-    return <ComingSoon />;
+    return <ComingSoon locale={l} />;
   }
 
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-nav overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950" />
         <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-gold-500/[0.04] rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gold-500/[0.03] rounded-full blur-3xl" />
@@ -174,7 +174,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             {t.home.footerCta.newsletterDesc}
           </p>
           <div className="max-w-md mx-auto">
-            <LeadCaptureForm source="homepage-footer" compact />
+            <LeadCaptureForm source="homepage-footer" compact locale={l} />
           </div>
         </div>
       </section>

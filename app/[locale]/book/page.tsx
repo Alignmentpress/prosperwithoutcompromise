@@ -62,7 +62,7 @@ export default async function BookPage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
-      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+      <section className="pt-nav-lg pb-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950" />
         <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-gold-500/[0.04] rounded-full blur-3xl" />
 
@@ -78,20 +78,23 @@ export default async function BookPage({ params }: { params: Promise<{ locale: s
               <p className="text-gray-400 text-base mb-8">{t.book.byAuthor}</p>
               <p className="text-gray-300 leading-relaxed mb-8">{t.book.intro}</p>
 
-              <div className="flex flex-wrap gap-4 mb-6">
-                <a
-                  href="#"
-                  className="px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-semibold rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg shadow-gold-500/20"
+              <div className="flex flex-wrap gap-4 mb-3" role="group" aria-label={t.book.purchaseLinksComingSoon}>
+                <button
+                  type="button"
+                  disabled
+                  className="px-6 py-3 min-h-[44px] bg-gradient-to-r from-gold-500/60 to-gold-600/60 text-navy-950 font-semibold rounded-lg opacity-60 cursor-not-allowed shadow-lg shadow-gold-500/10"
                 >
                   {t.book.buyAmazon}
-                </a>
-                <a
-                  href="#"
-                  className="px-6 py-3 border border-white/10 text-white rounded-lg hover:bg-white/5 hover:border-gold-400/30 transition-all duration-300"
+                </button>
+                <button
+                  type="button"
+                  disabled
+                  className="px-6 py-3 min-h-[44px] border border-white/10 text-white/70 rounded-lg cursor-not-allowed opacity-60"
                 >
                   {t.book.buyDigital}
-                </a>
+                </button>
               </div>
+              <p className="text-gold-400/90 text-sm mb-2">{t.book.purchaseLinksComingSoon}</p>
               <p className="text-gray-500 text-sm">{t.book.availableFormats}</p>
             </div>
 
@@ -168,7 +171,7 @@ export default async function BookPage({ params }: { params: Promise<{ locale: s
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-6">{t.book.ctaTitle}</h2>
           <p className="text-gray-400 mb-8 max-w-md mx-auto">{t.book.ctaDesc}</p>
           <div className="max-w-md mx-auto">
-            <LeadCaptureForm source="book-page" compact />
+            <LeadCaptureForm source="book-page" compact locale={l} />
           </div>
         </div>
       </section>

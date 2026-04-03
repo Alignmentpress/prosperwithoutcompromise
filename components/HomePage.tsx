@@ -9,7 +9,7 @@ export default function HomePage({ basePath = "" }: { basePath?: string }) {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-nav overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950" />
         <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-gold-500/[0.04] rounded-full blur-3xl" />
@@ -211,7 +211,7 @@ export default function HomePage({ basePath = "" }: { basePath?: string }) {
             content, and updates about workshops and resources.
           </p>
           <div className="max-w-md mx-auto">
-            <LeadCaptureForm source="homepage-footer" compact />
+            <LeadCaptureForm source="homepage-footer" compact locale={locale} />
           </div>
         </div>
       </section>

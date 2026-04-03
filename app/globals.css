@@ -21,10 +21,23 @@
   --foreground: #F9FAFB;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: clip;
+}
+
+/* 16px minimum on form controls — avoids iOS Safari zoom-on-focus */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 /* Custom scrollbar */
@@ -92,9 +105,18 @@ body {
   animation-delay: 600ms;
 }
 
+/* Offset for fixed navbar (5rem) + notch safe area — use with matching nav `pt-[env(safe-area-inset-top)]` */
+.pt-nav {
+  padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+}
+
+.pt-nav-lg {
+  padding-top: calc(8rem + env(safe-area-inset-top, 0px));
+}
+
 /* Smooth section transitions */
 section {
-  scroll-margin-top: 80px;
+  scroll-margin-top: calc(5rem + env(safe-area-inset-top, 0px));
 }
 
 /* Input focus styles */

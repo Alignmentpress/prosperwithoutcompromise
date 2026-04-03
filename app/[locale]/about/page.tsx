@@ -17,7 +17,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
   return (
     <>
-      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+      <section className="pt-nav-lg pb-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950" />
         <div className="absolute top-20 left-0 w-[500px] h-[500px] bg-gold-500/[0.04] rounded-full blur-3xl" />
 
@@ -106,7 +106,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <h2 className="font-serif text-3xl font-bold text-white mb-4">{t.about.followJourney}</h2>
           <p className="text-gray-400 mb-8">{t.about.followDesc}</p>
           <div className="max-w-md mx-auto">
-            <LeadCaptureForm source="about-page" compact />
+            <LeadCaptureForm source="about-page" compact locale={l} />
           </div>
         </div>
       </section>

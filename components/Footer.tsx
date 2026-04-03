@@ -78,7 +78,20 @@ export default function Footer({ locale }: FooterProps) {
           <p className="text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} Alignment Press. {t.footer.copyright}
           </p>
-          <p className="text-gray-600 text-xs">{t.footer.tagline}</p>
+          <div className="flex flex-col items-center sm:items-end gap-1 text-center sm:text-right">
+            <p className="text-gray-600 text-xs">{t.footer.tagline}</p>
+            <p className="text-gray-600 text-xs">
+              {t.footer.builtBy}{" "}
+              <a
+                href="https://digni-digital-llc.com/fr-fr/agentic-softwares"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold-500/90 hover:text-gold-400 underline underline-offset-2 transition-colors"
+              >
+                {t.footer.builtByCompany}
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

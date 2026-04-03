@@ -11,6 +11,7 @@ export const translations = {
       contact: "Contact",
       resources: "Resources",
       bookASession: "Book a Session",
+      toggleMenuAria: "Toggle navigation menu",
     },
     home: {
       hero: {
@@ -44,6 +45,53 @@ export const translations = {
         from: "from Prosper Without Compromise",
       },
     },
+    bookShowcase: {
+      label: "The Book",
+      titleLine1: "Prosper Without",
+      titleGold: "Compromise",
+      subtitle: "Faith, Strategy, and the Inner Alignment That Sustains Abundance.",
+      body:
+        "This book was born from a fundamental question: why do some people, despite status and money, live in constant tension, while others move forward with peace, clarity, and fruitfulness? Discover the four pillars of aligned prosperity: Intention, Strategy, Faith, and Action.",
+      pillars: [
+        { title: "Intention", desc: "Purify the source" },
+        { title: "Strategy", desc: "Design the path" },
+        { title: "Faith", desc: "Fuel the journey" },
+        { title: "Action", desc: "Seal the harvest" },
+      ],
+      cta: "Learn More About the Book",
+    },
+    leadCapture: {
+      firstNamePlaceholder: "First Name",
+      emailPlaceholder: "Email Address",
+      submit: "Join the Movement",
+      joining: "Joining...",
+      success: "Welcome aboard! Check your inbox soon.",
+      errorGeneric: "Something went wrong. Please try again.",
+      connectionError: "Connection error. Please try again.",
+      disclaimer: "No spam. Unsubscribe anytime.",
+    },
+    comingSoon: {
+      headlineBefore: "Something",
+      headlineGold: "Powerful",
+      headlineAfter: "is Coming",
+      bookLine: "Prosper Without Compromise",
+      byAuthor: "by Kevin Adou",
+      body:
+        "Faith, Strategy, and the Inner Alignment That Sustains Abundance. Be the first to know when it launches.",
+    },
+    countdownGate: {
+      launchLine: "by Kevin Adou · Launching February 18, 2026",
+      intro:
+        "Be the first to know when it's live. Enter your details below for early access.",
+      getEarlyAccess: "Get Early Access",
+      subscribing: "Subscribing...",
+      thankYou: "Thank you! You're on the list.",
+      redirecting: "Redirecting you to the full site...",
+      days: "Days",
+      hours: "Hours",
+      minutes: "Minutes",
+      seconds: "Seconds",
+    },
     book: {
       metaTitle: "The Book | Prosper Without Compromise",
       metaDescription:
@@ -56,6 +104,7 @@ export const translations = {
         "This book was born from a fundamental question: why do some people, despite status, money, or recognition, live in constant tension — while others move forward with peace, clarity, and fruitfulness? It invites a shift in posture: from survival to creation, from dispersion to alignment, from anxious control to conscious cooperation with deeper laws.",
       buyAmazon: "Buy on Amazon",
       buyDigital: "Buy Digital (PDF)",
+      purchaseLinksComingSoon: "Purchase links will be available soon.",
       availableFormats: "Available worldwide in paperback, hardcover, and digital formats.",
       keyPromiseTitle: "What This Book Will Help You Do",
       keyPromiseItems: [
@@ -120,6 +169,7 @@ export const translations = {
       getNewFirst: "Get New Resources First",
       getNewDesc: "Join the list to receive free tools, guides, and exclusive content as soon as they're released.",
       accessResource: "Access Resource",
+      accessNotReadyHint: "Downloads are not available yet — join the list below to be notified.",
       notifyMe: "Notify me when available",
       comingSoon: "Coming Soon",
       available: "Available",
@@ -160,6 +210,8 @@ export const translations = {
       connect: "Connect",
       copyright: "All rights reserved.",
       tagline: "Built with purpose. Powered by alignment.",
+      builtBy: "Built by",
+      builtByCompany: "Digni Digital LLC",
       ctaTitle: "Ready to align your ambition with your values?",
       ctaButton: "Join the Movement",
     },
@@ -177,6 +229,7 @@ export const translations = {
       videoLibraryTitle: "Video Library",
       videoLibrarySubtitle: "Short insights (1–3 min) on key pillars.",
       curriculum: "Curriculum overview",
+      enrollLinkComingSoon: "Enrollment link coming soon.",
     },
     coaching: {
       metaTitle: "Coaching & Training | Alignment Press",
@@ -197,6 +250,7 @@ export const translations = {
       bookDiscovery: "Book a Discovery Call",
       inquire: "Inquire About This Program",
       whatIncluded: "What's Included",
+      calendlyEmbedSubtitle: "Choose a time that works for you.",
     },
     common: {
       stayConnected: "Stay Connected",
@@ -213,6 +267,7 @@ export const translations = {
       contact: "Contact",
       resources: "Ressources",
       bookASession: "Réserver une session",
+      toggleMenuAria: "Ouvrir ou fermer le menu de navigation",
     },
     home: {
       hero: {
@@ -246,6 +301,53 @@ export const translations = {
         from: "extrait de Prospérer sans perdre son âme",
       },
     },
+    bookShowcase: {
+      label: "Le livre",
+      titleLine1: "Prospérer sans perdre",
+      titleGold: "son âme",
+      subtitle: "Foi, stratégie et l'alignement intérieur qui soutient l'abondance.",
+      body:
+        "Ce livre est né d'une question fondamentale : pourquoi certaines personnes, malgré le statut et l'argent, vivent dans une tension constante, alors que d'autres avancent avec paix, clarté et fécondité ? Découvrez les quatre piliers de la prospérité alignée : Intention, Stratégie, Foi et Action.",
+      pillars: [
+        { title: "Intention", desc: "Purifier la source" },
+        { title: "Stratégie", desc: "Tracer le chemin" },
+        { title: "Foi", desc: "Nourrir le parcours" },
+        { title: "Action", desc: "Sceller la moisson" },
+      ],
+      cta: "En savoir plus sur le livre",
+    },
+    leadCapture: {
+      firstNamePlaceholder: "Prénom",
+      emailPlaceholder: "Adresse e-mail",
+      submit: "Rejoindre le mouvement",
+      joining: "Inscription...",
+      success: "Bienvenue ! Vérifiez bientôt votre boîte mail.",
+      errorGeneric: "Une erreur s'est produite. Veuillez réessayer.",
+      connectionError: "Erreur de connexion. Veuillez réessayer.",
+      disclaimer: "Pas de spam. Désinscription à tout moment.",
+    },
+    comingSoon: {
+      headlineBefore: "Quelque chose de",
+      headlineGold: "puissant",
+      headlineAfter: "arrive",
+      bookLine: "Prospérer sans perdre son âme",
+      byAuthor: "par Kevin Adou",
+      body:
+        "Foi, stratégie et l'alignement intérieur qui soutient l'abondance. Soyez informé dès le lancement.",
+    },
+    countdownGate: {
+      launchLine: "par Kevin Adou · Lancement le 18 février 2026",
+      intro:
+        "Soyez parmi les premiers informés de la mise en ligne. Indiquez vos coordonnées pour un accès anticipé.",
+      getEarlyAccess: "Accès anticipé",
+      subscribing: "Inscription...",
+      thankYou: "Merci ! Vous êtes sur la liste.",
+      redirecting: "Redirection vers le site...",
+      days: "Jours",
+      hours: "Heures",
+      minutes: "Minutes",
+      seconds: "Secondes",
+    },
     book: {
       metaTitle: "Le livre | Prospérer sans perdre son âme",
       metaDescription:
@@ -258,6 +360,7 @@ export const translations = {
         "Ce livre est né d'une question fondamentale : pourquoi certaines personnes, malgré le statut, l'argent ou la reconnaissance, vivent dans une tension constante — alors que d'autres avancent avec paix, clarté et fécondité ? Il invite à un changement de posture : de la survie à la création, de la dispersion à l'alignement, du contrôle anxieux à la coopération consciente avec des lois plus profondes.",
       buyAmazon: "Acheter sur Amazon",
       buyDigital: "Version numérique (PDF)",
+      purchaseLinksComingSoon: "Les liens d'achat seront disponibles prochainement.",
       availableFormats: "Disponible dans le monde entier en format papier, relié et numérique.",
       keyPromiseTitle: "Ce que ce livre vous aidera à faire",
       keyPromiseItems: [
@@ -324,6 +427,7 @@ export const translations = {
       getNewDesc:
         "Rejoignez la liste pour recevoir outils, guides et contenu exclusif dès leur sortie.",
       accessResource: "Accéder à la ressource",
+      accessNotReadyHint: "Les téléchargements ne sont pas encore disponibles — inscrivez-vous ci-dessous pour être informé.",
       notifyMe: "Me notifier quand disponible",
       comingSoon: "Bientôt disponible",
       available: "Disponible",
@@ -364,6 +468,8 @@ export const translations = {
       connect: "Contact",
       copyright: "Tous droits réservés.",
       tagline: "Conçu avec un but. Propulsé par l'alignement.",
+      builtBy: "Conçu par",
+      builtByCompany: "Digni Digital LLC",
       ctaTitle: "Prêt à aligner votre ambition avec vos valeurs ?",
       ctaButton: "Rejoindre le mouvement",
     },
@@ -382,6 +488,7 @@ export const translations = {
       videoLibraryTitle: "Vidéothèque",
       videoLibrarySubtitle: "Courtes réflexions (1–3 min) sur les piliers clés.",
       curriculum: "Aperçu du programme",
+      enrollLinkComingSoon: "Lien d'inscription à venir.",
     },
     coaching: {
       metaTitle: "Coaching & Formation | Alignment Press",
@@ -402,6 +509,7 @@ export const translations = {
       bookDiscovery: "Réserver un appel découverte",
       inquire: "En savoir plus sur ce programme",
       whatIncluded: "Ce qui est inclus",
+      calendlyEmbedSubtitle: "Choisissez un créneau qui vous convient.",
     },
     common: {
       stayConnected: "Rester connecté",

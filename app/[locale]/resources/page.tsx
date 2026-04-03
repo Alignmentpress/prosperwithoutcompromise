@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
@@ -16,7 +17,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ loca
 
   return (
     <>
-      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+      <section className="pt-nav-lg pb-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950" />
         <div className="absolute top-40 left-1/4 w-[500px] h-[500px] bg-gold-500/[0.04] rounded-full blur-3xl" />
 
@@ -55,12 +56,15 @@ export default async function ResourcesPage({ params }: { params: Promise<{ loca
                 <p className="text-gray-400 text-sm leading-relaxed flex-grow">{resource.description}</p>
                 <div className="mt-6 pt-4 border-t border-white/5">
                   {resource.status === "available" ? (
-                    <button className="text-gold-400 hover:text-gold-300 font-semibold text-sm transition-colors inline-flex items-center gap-2">
+                    <Link
+                      href={`/${l}/contact`}
+                      className="text-gold-400 hover:text-gold-300 font-semibold text-sm transition-colors inline-flex items-center gap-2 min-h-[44px]"
+                    >
                       {t.resources.accessResource}
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
-                    </button>
+                    </Link>
                   ) : (
                     <span className="text-gray-500 text-sm">{t.resources.notifyMe}</span>
                   )}
@@ -79,7 +83,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ loca
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">{t.resources.getNewFirst}</h2>
           <p className="text-gray-400 text-base mb-8 max-w-md mx-auto">{t.resources.getNewDesc}</p>
           <div className="max-w-md mx-auto">
-            <LeadCaptureForm source="resources-page" compact />
+            <LeadCaptureForm source="resources-page" compact locale={l} />
           </div>
         </div>
       </section>

@@ -30,8 +30,8 @@ export default function LanguageSwitcher({ locale, variant = "nav", onNavigate }
   const linkClass = (active: boolean) =>
     variant === "nav"
       ? active
-        ? "min-w-[2.25rem] text-center rounded-md px-2 py-1.5 text-xs font-semibold bg-gold-400/15 text-gold-400 shadow-sm"
-        : "min-w-[2.25rem] text-center rounded-md px-2 py-1.5 text-xs font-medium text-gray-400 hover:text-gold-400 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400/60"
+        ? "min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md px-2 text-xs font-semibold bg-gold-400/15 text-gold-400 shadow-sm"
+        : "min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md px-2 text-xs font-medium text-gray-400 hover:text-gold-400 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400/60"
       : active
         ? "min-w-[2rem] text-center rounded px-2 py-1 text-xs font-semibold bg-gold-400/15 text-gold-400"
         : "min-w-[2rem] text-center rounded px-2 py-1 text-xs font-medium text-gray-400 hover:text-gold-400 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400/60";
