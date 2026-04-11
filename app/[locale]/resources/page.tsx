@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { getPublishedPosts } from "@/lib/data/blog-public";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
@@ -14,6 +15,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ loca
   const { locale } = await params;
   const l = locale as Locale;
   const t = getTranslations(l);
+  const cmsPosts = await getPublishedPosts(l);
 
   return (
     <>
@@ -30,6 +32,38 @@ export default async function ResourcesPage({ params }: { params: Promise<{ loca
           <p className="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto">{t.resources.subtitle}</p>
         </div>
       </section>
+
+      {cmsPosts.length > 0 && (
+        <section className="py-20 px-4 relative border-t border-white/5">
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-950 to-navy-900/80" />
+          <div className="relative z-10 max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-gold-400 font-semibold text-sm uppercase tracking-wider mb-3">{t.resources.cmsEyebrow}</p>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">{t.resources.cmsTitle}</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cmsPosts.map((post) => (
+                <Link
+                  key={post.id}
+                  href={`/${l}/resources/${post.slug}`}
+                  className="group border-glow rounded-xl p-6 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 hover:border-gold-400/30 flex flex-col text-left"
+                >
+                  <h3 className="font-serif text-xl font-bold text-white mb-3 group-hover:text-gold-200 transition-colors">
+                    {post.title}
+                  </h3>
+                  {post.excerpt && <p className="text-gray-400 text-sm leading-relaxed flex-grow line-clamp-4">{post.excerpt}</p>}
+                  <span className="mt-6 text-gold-400 font-semibold text-sm inline-flex items-center gap-2">
+                    {t.resources.readArticle}
+                    <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="py-24 px-4 relative">
         <div className="absolute inset-0 bg-navy-950" />

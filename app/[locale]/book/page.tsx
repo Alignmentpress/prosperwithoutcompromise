@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { getAmazonUrlsForLocale } from "@/lib/amazon";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
@@ -59,6 +59,9 @@ export default async function BookPage({ params }: { params: Promise<{ locale: s
   const l = locale as Locale;
   const t = getTranslations(l);
   const content = chapterContent[l];
+  const amazon = getAmazonUrlsForLocale(l);
+  const hasAmazon = Boolean(amazon.us || amazon.fr);
+  const labels = t.home.booksSection;
 
   return (
     <>
@@ -78,23 +81,43 @@ export default async function BookPage({ params }: { params: Promise<{ locale: s
               <p className="text-gray-400 text-base mb-8">{t.book.byAuthor}</p>
               <p className="text-gray-300 leading-relaxed mb-8">{t.book.intro}</p>
 
-              <div className="flex flex-wrap gap-4 mb-3" role="group" aria-label={t.book.purchaseLinksComingSoon}>
-                <button
-                  type="button"
-                  disabled
-                  className="px-6 py-3 min-h-[44px] bg-gradient-to-r from-gold-500/60 to-gold-600/60 text-navy-950 font-semibold rounded-lg opacity-60 cursor-not-allowed shadow-lg shadow-gold-500/10"
-                >
-                  {t.book.buyAmazon}
-                </button>
-                <button
-                  type="button"
-                  disabled
-                  className="px-6 py-3 min-h-[44px] border border-white/10 text-white/70 rounded-lg cursor-not-allowed opacity-60"
-                >
-                  {t.book.buyDigital}
-                </button>
+              <div
+                className="flex flex-wrap gap-4 mb-3"
+                role="group"
+                aria-label={hasAmazon ? labels.buyAmazonUs : t.book.purchaseLinksComingSoon}
+              >
+                {amazon.us ? (
+                  <a
+                    href={amazon.us}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 min-h-[44px] inline-flex items-center bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-semibold rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg shadow-gold-500/20"
+                  >
+                    {labels.buyAmazonUs}
+                  </a>
+                ) : (
+                  <span className="px-6 py-3 min-h-[44px] inline-flex items-center bg-gradient-to-r from-gold-500/50 to-gold-600/50 text-navy-950/80 font-semibold rounded-lg opacity-60 cursor-not-allowed">
+                    {labels.buyAmazonUs}
+                  </span>
+                )}
+                {amazon.fr ? (
+                  <a
+                    href={amazon.fr}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 min-h-[44px] inline-flex items-center border border-white/15 text-white rounded-lg hover:bg-white/5 hover:border-gold-400/30 transition-all font-semibold"
+                  >
+                    {labels.buyAmazonFr}
+                  </a>
+                ) : (
+                  <span className="px-6 py-3 min-h-[44px] inline-flex items-center border border-white/10 text-white/50 rounded-lg opacity-60 cursor-not-allowed">
+                    {labels.buyAmazonFr}
+                  </span>
+                )}
               </div>
-              <p className="text-gold-400/90 text-sm mb-2">{t.book.purchaseLinksComingSoon}</p>
+              {!hasAmazon && (
+                <p className="text-gold-400/90 text-sm mb-2">{t.book.purchaseLinksComingSoon}</p>
+              )}
               <p className="text-gray-500 text-sm">{t.book.availableFormats}</p>
             </div>
 
@@ -102,7 +125,7 @@ export default async function BookPage({ params }: { params: Promise<{ locale: s
               <div className="golden-glow rounded-2xl overflow-hidden">
                 <Image
                   src="/images/book-cover.jpg"
-                  alt="Prosper Without Compromise book cover"
+                  alt={t.book.coverImageAlt}
                   width={400}
                   height={520}
                   className="rounded-2xl"

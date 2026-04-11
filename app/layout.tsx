@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import AnalyticsScripts from "@/components/AnalyticsScripts";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,9 +16,6 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Alignment Press | Prosper Without Compromise",
-  description:
-    "Discover 'Prosper Without Compromise' by Kevin Adou — Faith, Strategy, and the Inner Alignment That Sustains Abundance.",
   icons: {
     icon: "/images/Alignment%20-Press%20Logo.jpeg",
   },
@@ -33,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} antialiased bg-navy-950 text-foreground`}
       >
+        <AnalyticsScripts />
         {children}
       </body>
     </html>

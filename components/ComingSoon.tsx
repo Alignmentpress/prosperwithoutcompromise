@@ -5,7 +5,9 @@ import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 
 export default function ComingSoon({ locale }: { locale: Locale }) {
-  const t = getTranslations(locale).comingSoon;
+  const t = getTranslations(locale);
+  const tc = t.comingSoon;
+  const coverAlt = t.book.coverImageAlt;
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12 relative overflow-hidden">
@@ -22,7 +24,7 @@ export default function ComingSoon({ locale }: { locale: Locale }) {
           <div className="golden-glow inline-block rounded-xl overflow-hidden max-w-full">
             <Image
               src="/images/book-cover.jpg"
-              alt="Prosper Without Compromise by Kevin Adou"
+              alt={coverAlt}
               width={320}
               height={420}
               className="rounded-xl max-w-full h-auto"
@@ -32,15 +34,15 @@ export default function ComingSoon({ locale }: { locale: Locale }) {
         </div>
 
         <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-          {t.headlineBefore}{" "}
-          <span className="text-gradient-gold">{t.headlineGold}</span> {t.headlineAfter}
+          {tc.headlineBefore}{" "}
+          <span className="text-gradient-gold">{tc.headlineGold}</span> {tc.headlineAfter}
         </h1>
 
         <p className="text-gray-300 text-lg sm:text-xl mb-2">
-          <em>{t.bookLine}</em> {t.byAuthor}
+          <em>{tc.bookLine}</em> {tc.byAuthor}
         </p>
 
-        <p className="text-gray-400 text-base max-w-md mx-auto mb-10">{t.body}</p>
+        <p className="text-gray-400 text-base max-w-md mx-auto mb-10">{tc.body}</p>
 
         <div className="max-w-md mx-auto">
           <LeadCaptureForm source="coming-soon" compact locale={locale} />

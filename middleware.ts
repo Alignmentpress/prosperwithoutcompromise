@@ -1,13 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
+import { createServerClient } from "@supabase/ssr";
+import { NextResponse, type NextRequest } from "next/server";
 import { defaultLocale, locales, type Locale } from "@/lib/i18n";
 
 const localePrefix = new RegExp(`^/(${locales.join("|")})(/|$)`);
 
-/**
- * Resolves locale only for un-prefixed URLs (e.g. `/` or legacy `/book`).
- * Order: NEXT_LOCALE cookie, then Accept-Language (fr* → fr), else defaultLocale.
- * Paths that already include /en/ or /fr/ are not renegotiated—deep links stay as-is.
- */
 function getPreferredLocale(request: NextRequest): Locale {
   const cookie = request.cookies.get("NEXT_LOCALE")?.value;
   if (cookie && locales.includes(cookie as Locale)) return cookie as Locale;
@@ -16,10 +12,23 @@ function getPreferredLocale(request: NextRequest): Locale {
   return defaultLocale;
 }
 
-export function middleware(request: NextRequest) {
+function adminEmails(): string[] {
+  const raw = process.env.CMS_ADMIN_EMAILS ?? "";
+  return raw
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+}
+
+function isCmsAdmin(email: string | undefined): boolean {
+  const list = adminEmails();
+  if (!list.length) return false;
+  return Boolean(email && list.includes(email.trim().toLowerCase()));
+}
+
+export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Skip API, static files, and Next.js internals
   if (
     pathname.startsWith("/api/") ||
     pathname.startsWith("/_next/") ||
@@ -29,39 +38,99 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  let response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  });
+
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  let userEmail: string | undefined;
+
+  if (url && anon) {
+    const supabase = createServerClient(url, anon, {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
+          response = NextResponse.next({
+            request: {
+              headers: request.headers,
+            },
+          });
+          cookiesToSet.forEach(({ name, value, options }) => response.cookies.set(name, value, options));
+        },
+      },
+    });
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (pathname.startsWith("/admin") && !pathname.startsWith("/admin/login")) {
+      if (!user) {
+        const redirect = NextResponse.redirect(new URL("/admin/login", request.url));
+        response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
+        return redirect;
+      }
+      if (!isCmsAdmin(user.email)) {
+        const redirect = NextResponse.redirect(new URL("/admin/login?error=forbidden", request.url));
+        response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
+        return redirect;
+      }
+    }
+
+    if (pathname === "/admin/login" && user && isCmsAdmin(user.email)) {
+      const redirect = NextResponse.redirect(new URL("/admin", request.url));
+      response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
+      return redirect;
+    }
+  } else if (pathname.startsWith("/admin") && !pathname.startsWith("/admin/login")) {
+    return NextResponse.redirect(new URL("/admin/login", request.url));
+  }
+
   const hasLocale = localePrefix.test(pathname);
 
-  if (hasLocale) {
-    return NextResponse.next();
+  function copyCookiesTo(dest: NextResponse) {
+    response.cookies.getAll().forEach((c) => dest.cookies.set(c.name, c.value));
   }
 
-  // Root: redirect to preferred locale
+  if (hasLocale) {
+    return response;
+  }
+
   if (pathname === "/") {
     const locale = getPreferredLocale(request);
-    const res = NextResponse.redirect(new URL(`/${locale}`, request.url));
-    res.cookies.set("NEXT_LOCALE", locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
-    return res;
+    const redirect = NextResponse.redirect(new URL(`/${locale}`, request.url));
+    copyCookiesTo(redirect);
+    redirect.cookies.set("NEXT_LOCALE", locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
+    return redirect;
   }
 
-  // Legacy routes without locale: redirect to /locale/...
   const segment = pathname.split("/")[1];
   const knownPaths = ["book", "about", "workshops", "resources", "contact", "academy", "coaching"];
   if (knownPaths.includes(segment)) {
     const locale = getPreferredLocale(request);
-    // /workshops -> /coaching
     const targetPath = segment === "workshops" ? pathname.replace("/workshops", "/coaching") : pathname;
-    return NextResponse.redirect(new URL(`/${locale}${targetPath}`, request.url));
+    const redirect = NextResponse.redirect(new URL(`/${locale}${targetPath}`, request.url));
+    copyCookiesTo(redirect);
+    return redirect;
   }
 
-  // Legacy /locale/workshops -> /locale/coaching
   const pathWithLocale = pathname.match(/^\/(en|fr)\/workshops(\/|$)/);
   if (pathWithLocale) {
-    const locale = pathWithLocale[1];
+    const loc = pathWithLocale[1];
     const rest = pathname.slice(pathWithLocale[0].length);
-    return NextResponse.redirect(new URL(`/${locale}/coaching${rest}`, request.url));
+    const redirect = NextResponse.redirect(new URL(`/${loc}/coaching${rest}`, request.url));
+    copyCookiesTo(redirect);
+    return redirect;
   }
 
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {

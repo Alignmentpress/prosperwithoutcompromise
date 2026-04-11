@@ -14,7 +14,7 @@ const fallbackSizes = {
   md: "w-10 h-10 text-lg",
 };
 
-export default function Logo({ size = "sm" }: { size?: LogoSize }) {
+export default function Logo({ size = "sm", alt = "Alignment Press" }: { size?: LogoSize; alt?: string }) {
   const [imageError, setImageError] = useState(false);
 
   if (imageError) {
@@ -32,7 +32,7 @@ export default function Logo({ size = "sm" }: { size?: LogoSize }) {
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src="/images/Alignment%20-Press%20Logo.jpeg"
-      alt="Alignment Press"
+      alt={alt}
       className={sizeClasses[size]}
       onError={() => setImageError(true)}
     />

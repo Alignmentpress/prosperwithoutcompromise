@@ -24,7 +24,7 @@ export default function BookShowcase({ locale = "en" }: BookShowcaseProps) {
               <div className="golden-glow rounded-2xl overflow-hidden">
                 <Image
                   src="/images/book-formats.jpg"
-                  alt="Prosper Without Compromise - Available in multiple formats"
+                  alt={t.coverImageAlt}
                   width={560}
                   height={380}
                   className="rounded-2xl max-w-full h-auto"

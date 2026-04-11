@@ -5,7 +5,9 @@ import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 
 const footerLinkKeys = [
+  { path: "", key: "home" as const },
   { path: "book", key: "books" as const },
+  { path: "resources", key: "resources" as const },
   { path: "academy", key: "academy" as const },
   { path: "coaching", key: "coaching" as const },
   { path: "about", key: "about" as const },
@@ -21,7 +23,7 @@ export default function Footer({ locale }: FooterProps) {
   const base = `/${locale}`;
 
   const links = footerLinkKeys.map(({ path, key }) => ({
-    href: `${base}/${path}`,
+    href: path ? `${base}/${path}` : base,
     label: t.nav[key],
   }));
 
@@ -31,7 +33,7 @@ export default function Footer({ locale }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <Link href={base} className="flex items-center gap-3 mb-4">
-              <Logo size="sm" />
+              <Logo size="sm" alt={t.common.logoAlt} />
               <span className="font-serif text-xl tracking-wide text-white">Alignment Press</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">{t.footer.brandDesc}</p>
@@ -64,6 +66,11 @@ export default function Footer({ locale }: FooterProps) {
                 <Link href={`${base}/contact`} className="text-gray-400 text-sm hover:text-gold-400 transition-colors">
                   {t.nav.contact}
                 </Link>
+              </li>
+              <li>
+                <a href="mailto:hello@alignmentpress.com" className="text-gray-400 text-sm hover:text-gold-400 transition-colors">
+                  hello@alignmentpress.com
+                </a>
               </li>
               <li>
                 <a href="mailto:kevin@alignmentpress.com" className="text-gray-400 text-sm hover:text-gold-400 transition-colors">

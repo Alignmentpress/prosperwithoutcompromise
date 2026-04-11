@@ -3,19 +3,27 @@
 import { useState } from "react";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
+import { trackLead } from "@/lib/analytics";
 
 interface LeadCaptureFormProps {
   source?: string;
   compact?: boolean;
   locale?: Locale;
+  /** Defaults to newsletter "book" interest */
+  interest?: string[];
+  /** Override button label (e.g. waitlist CTA) */
+  submitLabel?: string;
 }
 
 export default function LeadCaptureForm({
   source = "website",
   compact = false,
   locale = "en",
+  interest = ["book"],
+  submitLabel,
 }: LeadCaptureFormProps) {
   const t = getTranslations(locale).leadCapture;
+  const buttonLabel = submitLabel ?? t.submit;
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -33,7 +41,7 @@ export default function LeadCaptureForm({
           first_name: firstName,
           email,
           source,
-          interest: ["book"],
+          interest,
         }),
       });
 
@@ -44,6 +52,7 @@ export default function LeadCaptureForm({
         setMessage(t.success);
         setFirstName("");
         setEmail("");
+        trackLead(source);
       } else {
         setStatus("error");
         setMessage(data.error || t.errorGeneric);
@@ -103,7 +112,7 @@ export default function LeadCaptureForm({
             {t.joining}
           </span>
         ) : (
-          t.submit
+          buttonLabel
         )}
       </button>
       {status === "error" && <p className="text-red-400 text-sm text-center">{message}</p>}

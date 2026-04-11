@@ -4,34 +4,72 @@ export const translations = {
   en: {
     nav: {
       home: "Home",
-      books: "Books",
+      books: "Book",
       academy: "Academy",
       coaching: "Coaching",
       about: "About",
       contact: "Contact",
-      resources: "Resources",
+      resources: "Insights",
       bookASession: "Book a Session",
       toggleMenuAria: "Toggle navigation menu",
     },
     home: {
+      metaTitle: "Alignment Press | Leadership, Faith & Prosperity Without Compromise",
+      metaDescription:
+        "Leadership, alignment, prosperity, strategy, and faith — build an empire and keep your soul. The book, insights, and the free Alignment Test (DAP) by Kevin Adou.",
       hero: {
-        byline: "A New Book by Kevin Adou",
+        byline: "Kevin Adou · Alignment Press",
         title: "Prosper Without Compromise.",
-        titleLine1: "Prosper\nWithout",
-        titleLine2: "Compromise.",
+        titleLine1: "Build an Empire.",
+        titleLine2: "Keep Your Soul.",
         subtitle:
-          "Master the intersection of high-level business success and unwavering spiritual integrity.",
+          "The alliance of strategy and faith for prosperity without compromise.",
+        ctaAlignment: "Take the Alignment Test (Free)",
+        ctaBooks: "The Book",
         ctaBook: "Get the Book",
         ctaVideos: "Watch the Series",
+        heroImageAlt:
+          "Kevin Adou — Prosper Without Compromise, leadership and spiritual alignment",
+      },
+      vision: {
+        label: "The Vision",
+        title: "The way of the river",
+        body:
+          "Most leaders sacrifice their peace for profit. Alignment Press exists to show you another way: the way of the river.",
+      },
+      booksSection: {
+        label: "The Book",
+        crossLanguageNote:
+          "Also published in French as Prospérer sans perdre son âme.",
+        buyAmazonUs: "Amazon · US",
+        buyAmazonFr: "Amazon · FR",
+        linksSoon: "Amazon links coming soon.",
+        learnMore: "Learn more",
+      },
+      quickLinks: {
+        eyebrow: "Explore",
+        academy: "Academy",
+        coaching: "Coaching",
+        insights: "Insights",
+      },
+      pathways: {
+        intro:
+          "Choose where to start — the book, the Academy masterclass, or one-on-one coaching.",
       },
       pillars: {
-        read: { title: "Read", subtitle: "The Foundation", cta: "Explore the Books" },
+        read: { title: "Read", subtitle: "The Foundation", cta: "Explore the Book" },
         learn: { title: "Learn", subtitle: "The Academy", cta: "Start the Masterclass" },
         evolve: { title: "Evolve", subtitle: "The Coaching", cta: "Book Your Session" },
       },
       why: {
         title: "Success shouldn't cost you your soul.",
         body: "At Alignment Press, we believe true prosperity is built on solid ground. We provide the tools, the wisdom, and the community to help you scale your business while staying true to your faith.",
+      },
+      fourPillars: {
+        eyebrow: "The framework",
+        title: "Four pillars of aligned prosperity",
+        intro:
+          "The structured path from invisible intention to concrete reality — the same movement through Intention, Strategy, Faith, and Action that anchors Prosper Without Compromise.",
       },
       footerCta: {
         title: "Ready to align your ambition with your values?",
@@ -46,6 +84,8 @@ export const translations = {
       },
     },
     bookShowcase: {
+      coverImageAlt:
+        "Prosper Without Compromise — English and French editions, multiple formats",
       label: "The Book",
       titleLine1: "Prosper Without",
       titleGold: "Compromise",
@@ -92,10 +132,30 @@ export const translations = {
       minutes: "Minutes",
       seconds: "Seconds",
     },
+    alignmentTest: {
+      metaTitle: "Alignment Test (DAP) | Free PDF | Alignment Press",
+      metaDescription:
+        "Take the free Alignment Test (DAP model). Leadership, alignment, prosperity, strategy, and faith — get your PDF from Kevin Adou.",
+      heroLabel: "Free resource",
+      title: "Alignment Test (DAP)",
+      subtitle:
+        "Enter your details to receive the Alignment Test PDF by email. Same model as in Prosper Without Compromise — Intention, Strategy, Faith, and Action.",
+      firstNamePlaceholder: "First name",
+      emailPlaceholder: "Email address",
+      submit: "Send me the PDF",
+      sending: "Sending...",
+      success: "Check your inbox — your PDF is on the way.",
+      errorGeneric: "Something went wrong. Please try again.",
+      connectionError: "Connection error. Please try again.",
+      privacyLine:
+        "We use your email only to send this resource and related updates from Alignment Press. Unsubscribe anytime.",
+    },
     book: {
       metaTitle: "The Book | Prosper Without Compromise",
       metaDescription:
-        "Discover 'Prosper Without Compromise' by Kevin Adou — Faith, Strategy, and the Inner Alignment That Sustains Abundance.",
+        "Leadership, alignment, prosperity, strategy, and faith — discover 'Prosper Without Compromise' by Kevin Adou. Faith, Strategy, and the Inner Alignment That Sustains Abundance.",
+      coverImageAlt:
+        "Book cover: Prosper Without Compromise by Kevin Adou — leadership and alignment",
       heroLabel: "The Book",
       title: "Prosper Without Compromise",
       subtitle: "Faith, Strategy, and the Inner Alignment That Sustains Abundance",
@@ -125,7 +185,7 @@ export const translations = {
     about: {
       metaTitle: "About Kevin Adou | Alignment Press",
       metaDescription:
-        "Learn about Kevin Adou, author of 'Prosper Without Compromise' — a conscious builder committed to helping others align purpose with prosperity.",
+        "Kevin Adou — author, leadership, alignment, prosperity, strategy, and faith. Prosper Without Compromise and Alignment Press.",
       heroLabel: "The Author",
       title: "Kevin Adou",
       tagline: "Author, Speaker & Conscious Builder",
@@ -157,9 +217,9 @@ export const translations = {
       ],
     },
     resources: {
-      metaTitle: "Resources | Alignment Press",
+      metaTitle: "Insights & Resources | Alignment Press",
       metaDescription:
-        "Free resources, guides, and tools from Alignment Press to help you on your journey toward aligned prosperity.",
+        "Insights, blog, and videos — leadership, alignment, prosperity, strategy, and faith. Free guides and tools from Kevin Adou.",
       heroLabel: "Resources",
       title: "Tools for the Conscious Builder",
       titlePrefix: "Tools for the ",
@@ -173,6 +233,9 @@ export const translations = {
       notifyMe: "Notify me when available",
       comingSoon: "Coming Soon",
       available: "Available",
+      cmsEyebrow: "From the blog",
+      cmsTitle: "Latest articles",
+      readArticle: "Read article",
       items: [
         { title: "The Alignment Self-Assessment", type: "Free Tool", description: "A guided questionnaire to evaluate where you stand across the four pillars: Intention, Strategy, Faith, and Action. Identify your strengths and areas for growth.", status: "comingSoon" as const },
         { title: "D.A.P. Vision Workbook", type: "Free Download", description: "A practical workbook to help you clarify your Desire, Love, and Potential — the three dimensions that transform abstract vision into a clear, embodied mission.", status: "comingSoon" as const },
@@ -184,7 +247,8 @@ export const translations = {
     },
     contact: {
       metaTitle: "Contact | Alignment Press",
-      metaDescription: "Get in touch with Alignment Press. Questions, partnerships, or say hello.",
+      metaDescription:
+        "Contact Alignment Press — hello@alignmentpress.com. Leadership, alignment, and prosperity. Partnerships and inquiries welcome.",
       heroLabel: "Contact",
       title: "Let's Connect",
       subtitle: "Have a question, partnership inquiry, or just want to say hello? We'd love to hear from you.",
@@ -216,13 +280,23 @@ export const translations = {
       ctaButton: "Join the Movement",
     },
     academy: {
-      metaTitle: "Academy | Alignment Press",
+      metaTitle: "Academy | DAP Protocol Course | Alignment Press",
       metaDescription:
-        "Online courses and video insights from Kevin Adou. Master the principles of aligned prosperity.",
+        "Leadership, alignment, prosperity — join the priority waitlist for the DAP Protocol course with Kevin Adou.",
       heroLabel: "The Academy",
-      title: "Learn at Your Pace",
+      title: "The DAP Protocol Course",
       subtitle:
-        "Online courses and short, high-impact videos on integrity in sales, biblical mindset, and leadership alignment.",
+        "A structured online course translating Desire, Alignment, and Purpose into daily leadership practice. Phase 1: priority waitlist — be first when the next intake opens.",
+      dapBadge: "Coming soon",
+      dapTitle: "DAP Protocol — full curriculum",
+      dapBody:
+        "The complete protocol from Prosper Without Compromise, with video lessons, worksheets, and accountability. Not yet open for sale.",
+      waitlistTitle: "Join the priority list",
+      waitlistDesc: "Get notified first for the next intake. No obligation.",
+      waitlistCta: "Join the priority list for the next intake",
+      insightsPreviewTitle: "Insights preview",
+      insightsPreviewSubtitle: "Short videos and blog-style resources — explore more in Insights.",
+      insightsLink: "Go to Insights",
       masterclassTitle: "The Masterclass",
       masterclassDesc: "The flagship online course. A structured journey through the principles of Prosper Without Compromise.",
       enrollNow: "Enroll Now",
@@ -234,11 +308,24 @@ export const translations = {
     coaching: {
       metaTitle: "Coaching & Training | Alignment Press",
       metaDescription:
-        "Executive coaching and corporate training with Kevin Adou. Book a discovery call or a session.",
+        "Executive coaching and corporate training with Kevin Adou. Leadership, alignment, and prosperity — book after a short alignment form.",
       heroLabel: "Coaching & Training",
       title: "Transform Through Guided Alignment",
       subtitle:
         "One-on-one executive coaching and half-day or full-day corporate workshops. Book a discovery call to discuss your needs.",
+      alignmentGateTitle: "Alignment form",
+      alignmentGateIntro:
+        "Before you book, answer four short questions so we can ensure this coaching is the right fit.",
+      alignmentQ1: "What is the primary outcome you want from coaching in the next 90 days?",
+      alignmentQ2: "How do faith and values currently show up in your leadership decisions?",
+      alignmentQ3: "What has been your biggest tension between ambition and peace?",
+      alignmentQ4: "Why Kevin / Alignment Press — why now?",
+      alignmentSubmit: "Submit and continue to booking",
+      alignmentSubmitting: "Submitting...",
+      alignmentSuccess: "Thank you. You can now choose a time below.",
+      alignmentEmailLabel: "Email (for follow-up)",
+      alignmentNameLabel: "Full name",
+      alignmentPlaceholder: "Your answer…",
       executiveTitle: "Executive Coaching",
       executiveDuration: "One-on-One",
       executiveDesc:
@@ -255,39 +342,78 @@ export const translations = {
     common: {
       stayConnected: "Stay Connected",
       joinMovement: "Join the Movement",
+      logoAlt: "Alignment Press logo",
     },
   },
   fr: {
     nav: {
       home: "Accueil",
-      books: "Livres",
+      books: "Livre",
       academy: "Académie",
       coaching: "Coaching",
       about: "À propos",
       contact: "Contact",
-      resources: "Ressources",
+      resources: "Insights",
       bookASession: "Réserver une session",
       toggleMenuAria: "Ouvrir ou fermer le menu de navigation",
     },
     home: {
+      metaTitle:
+        "Alignment Press | Leadership, alignement, foi et prospérité sans compromis",
+      metaDescription:
+        "Leadership, alignement, prospérité, stratégie et foi — construisez un empire en gardant votre âme. Livres, insights et test d'alignement DAP gratuit par Kevin Adou.",
       hero: {
-        byline: "Un nouveau livre de Kevin Adou",
+        byline: "Kevin Adou · Alignment Press",
         title: "Prospérer sans perdre son âme.",
-        titleLine1: "Prospérer sans perdre",
-        titleLine2: "son âme.",
+        titleLine1: "Construisez un empire.",
+        titleLine2: "Gardez votre âme.",
         subtitle:
-          "Maîtrisez l'intersection entre le succès entrepreneurial de haut niveau et l'intégrité spirituelle.",
+          "L'alliance de la stratégie et de la foi pour une prospérité sans compromis.",
+        ctaAlignment: "Faire le Test d'Alignement (Gratuit)",
+        ctaBooks: "Le livre",
         ctaBook: "Acheter le livre",
         ctaVideos: "Voir les vidéos",
+        heroImageAlt:
+          "Kevin Adou — Prospérer sans perdre son âme, leadership et alignement spirituel",
+      },
+      vision: {
+        label: "La vision",
+        title: "Le chemin du fleuve",
+        body:
+          "La plupart des leaders sacrifient leur paix pour leur profit. Alignment Press existe pour vous montrer qu'un autre chemin est possible : celui du fleuve.",
+      },
+      booksSection: {
+        label: "Le livre",
+        crossLanguageNote: "Également publié en anglais : Prosper Without Compromise.",
+        buyAmazonUs: "Amazon · US",
+        buyAmazonFr: "Amazon · FR",
+        linksSoon: "Liens Amazon disponibles bientôt.",
+        learnMore: "En savoir plus",
+      },
+      quickLinks: {
+        eyebrow: "Explorer",
+        academy: "Académie",
+        coaching: "Coaching",
+        insights: "Insights",
+      },
+      pathways: {
+        intro:
+          "Par où commencer — le livre, la masterclass Académie, ou le coaching individuel.",
       },
       pillars: {
-        read: { title: "Lire", subtitle: "La fondation", cta: "Découvrir les livres" },
+        read: { title: "Lire", subtitle: "La fondation", cta: "Découvrir le livre" },
         learn: { title: "Apprendre", subtitle: "L'Académie", cta: "Suivre la Masterclass" },
         evolve: { title: "Évoluer", subtitle: "Le Coaching", cta: "Réserver une session" },
       },
       why: {
         title: "Le succès ne devrait pas vous coûter votre âme.",
         body: "Chez Alignment Press, nous croyons que la vraie prospérité se bâtit sur un socle solide. Nous offrons les outils, la sagesse et la communauté pour vous aider à propulser votre entreprise tout en restant fidèle à votre foi.",
+      },
+      fourPillars: {
+        eyebrow: "Le cadre",
+        title: "Quatre piliers de la prospérité alignée",
+        intro:
+          "Le chemin structuré de l'intention invisible à la réalité concrète — le même mouvement à travers Intention, Stratégie, Foi et Action qui structure Prospérer sans perdre son âme.",
       },
       footerCta: {
         title: "Prêt à aligner votre ambition avec vos valeurs ?",
@@ -302,6 +428,8 @@ export const translations = {
       },
     },
     bookShowcase: {
+      coverImageAlt:
+        "Prospérer sans perdre son âme — éditions et formats multiples",
       label: "Le livre",
       titleLine1: "Prospérer sans perdre",
       titleGold: "son âme",
@@ -348,10 +476,30 @@ export const translations = {
       minutes: "Minutes",
       seconds: "Secondes",
     },
+    alignmentTest: {
+      metaTitle: "Test d'alignement (DAP) | PDF gratuit | Alignment Press",
+      metaDescription:
+        "Passez le test d'alignement gratuit (modèle DAP). Leadership, alignement, prospérité, stratégie et foi — recevez votre PDF par Kevin Adou.",
+      heroLabel: "Ressource gratuite",
+      title: "Test d'alignement (DAP)",
+      subtitle:
+        "Indiquez vos coordonnées pour recevoir le PDF du test d'alignement par e-mail. Le même cadre que dans Prospérer sans perdre son âme — Intention, Stratégie, Foi et Action.",
+      firstNamePlaceholder: "Prénom",
+      emailPlaceholder: "Adresse e-mail",
+      submit: "Recevoir le PDF",
+      sending: "Envoi...",
+      success: "Vérifiez votre boîte mail — le PDF arrive.",
+      errorGeneric: "Une erreur s'est produite. Veuillez réessayer.",
+      connectionError: "Erreur de connexion. Veuillez réessayer.",
+      privacyLine:
+        "Nous utilisons votre e-mail uniquement pour envoyer cette ressource et des nouvelles d'Alignment Press. Désinscription à tout moment.",
+    },
     book: {
       metaTitle: "Le livre | Prospérer sans perdre son âme",
       metaDescription:
-        "Découvrez « Prospérer sans perdre son âme » de Kevin Adou — Foi, stratégie et l'alignement intérieur qui soutient l'abondance.",
+        "Leadership, alignement, prospérité, stratégie et foi — découvrez « Prospérer sans perdre son âme » de Kevin Adou. Foi, stratégie et alignement intérieur.",
+      coverImageAlt:
+        "Couverture : Prospérer sans perdre son âme par Kevin Adou — leadership et alignement",
       heroLabel: "Le livre",
       title: "Prospérer sans perdre son âme",
       subtitle: "Foi, stratégie et l'alignement intérieur qui soutient l'abondance",
@@ -381,7 +529,7 @@ export const translations = {
     about: {
       metaTitle: "À propos de Kevin Adou | Alignment Press",
       metaDescription:
-        "Découvrez Kevin Adou, auteur de « Prospérer sans perdre son âme » — un bâtisseur conscient engagé à aider les autres à aligner but et prospérité.",
+        "Kevin Adou — auteur, leadership, alignement, prospérité, stratégie et foi. Prospérer sans perdre son âme et Alignment Press.",
       heroLabel: "L'auteur",
       title: "Kevin Adou",
       tagline: "Auteur, conférencier et bâtisseur conscient",
@@ -414,9 +562,9 @@ export const translations = {
       ],
     },
     resources: {
-      metaTitle: "Ressources | Alignment Press",
+      metaTitle: "Insights & Ressources | Alignment Press",
       metaDescription:
-        "Ressources, guides et outils gratuits d'Alignment Press pour vous accompagner vers une prospérité alignée.",
+        "Insights, blog et vidéos — leadership, alignement, prospérité, stratégie et foi. Guides et outils gratuits de Kevin Adou.",
       heroLabel: "Ressources",
       title: "Outils pour le bâtisseur conscient",
       titlePrefix: "Outils pour le ",
@@ -431,6 +579,9 @@ export const translations = {
       notifyMe: "Me notifier quand disponible",
       comingSoon: "Bientôt disponible",
       available: "Disponible",
+      cmsEyebrow: "Sur le blog",
+      cmsTitle: "Derniers articles",
+      readArticle: "Lire l'article",
       items: [
         { title: "L'auto-évaluation d'alignement", type: "Outil gratuit", description: "Un questionnaire guidé pour évaluer où vous en êtes sur les quatre piliers : Intention, Stratégie, Foi et Action. Identifiez vos forces et axes de croissance.", status: "comingSoon" as const },
         { title: "Cahier de vision D.A.P.", type: "Téléchargement gratuit", description: "Un cahier pratique pour clarifier votre Désir, Amour et Potentiel — les trois dimensions qui transforment la vision abstraite en mission claire et incarnée.", status: "comingSoon" as const },
@@ -442,7 +593,8 @@ export const translations = {
     },
     contact: {
       metaTitle: "Contact | Alignment Press",
-      metaDescription: "Contactez Alignment Press. Questions, partenariats ou simplement dire bonjour.",
+      metaDescription:
+        "Contact Alignment Press — hello@alignmentpress.com. Leadership, alignement et prospérité. Partenariats et questions.",
       heroLabel: "Contact",
       title: "Restons en contact",
       subtitle: "Une question, une proposition de partenariat ou envie de nous dire bonjour ? Nous serions ravis de vous lire.",
@@ -474,13 +626,23 @@ export const translations = {
       ctaButton: "Rejoindre le mouvement",
     },
     academy: {
-      metaTitle: "Académie | Alignment Press",
+      metaTitle: "Académie | Cours Protocole DAP | Alignment Press",
       metaDescription:
-        "Cours en ligne et vidéos de Kevin Adou. Maîtrisez les principes de la prospérité alignée.",
+        "Leadership, alignement, prospérité — inscrivez-vous sur la liste prioritaire pour le cours Protocole DAP avec Kevin Adou.",
       heroLabel: "L'Académie",
-      title: "Apprenez à votre rythme",
+      title: "Le cours Protocole DAP",
       subtitle:
-        "Cours en ligne et vidéos courtes à fort impact sur l'intégrité en vente, la mentalité biblique et l'alignement en leadership.",
+        "Un cours en ligne structuré pour traduire Désir, Alignement et Projet en pratique quotidienne de leader. Phase 1 : liste d'attente prioritaire.",
+      dapBadge: "Bientôt",
+      dapTitle: "Protocole DAP — programme complet",
+      dapBody:
+        "Le protocole complet issu de Prospérer sans perdre son âme, avec vidéos, fiches et accompagnement. Pas encore en vente.",
+      waitlistTitle: "Rejoindre la liste prioritaire",
+      waitlistDesc: "Soyez informé en premier de la prochaine promotion. Sans engagement.",
+      waitlistCta: "Rejoindre la liste prioritaire pour la prochaine promotion",
+      insightsPreviewTitle: "Aperçu Insights",
+      insightsPreviewSubtitle: "Vidéos courtes et ressources — retrouvez-en plus dans Insights.",
+      insightsLink: "Voir Insights",
       masterclassTitle: "La Masterclass",
       masterclassDesc:
         "Le cours en ligne phare. Un parcours structuré à travers les principes de Prospérer sans perdre son âme.",
@@ -493,11 +655,24 @@ export const translations = {
     coaching: {
       metaTitle: "Coaching & Formation | Alignment Press",
       metaDescription:
-        "Coaching dirigeants et formations en entreprise avec Kevin Adou. Réservez un appel découverte ou une session.",
+        "Coaching dirigeants et formations avec Kevin Adou. Leadership, alignement et prospérité — réservez après un court formulaire d'alignement.",
       heroLabel: "Coaching & Formation",
       title: "Transformez-vous grâce à un accompagnement aligné",
       subtitle:
         "Coaching dirigeant en tête-à-tête et ateliers entreprise d'une demi-journée ou d'une journée. Réservez un appel découverte pour en discuter.",
+      alignmentGateTitle: "Formulaire d'alignement",
+      alignmentGateIntro:
+        "Avant de réserver, répondez à quatre questions courtes pour vérifier que cet accompagnement vous convient.",
+      alignmentQ1: "Quel résultat principal attendez-vous du coaching dans les 90 prochains jours ?",
+      alignmentQ2: "Comment la foi et vos valeurs se manifestent-elles aujourd'hui dans vos décisions de leader ?",
+      alignmentQ3: "Quelle a été votre principale tension entre ambition et paix ?",
+      alignmentQ4: "Pourquoi Kevin / Alignment Press — pourquoi maintenant ?",
+      alignmentSubmit: "Envoyer et continuer vers la réservation",
+      alignmentSubmitting: "Envoi...",
+      alignmentSuccess: "Merci. Vous pouvez maintenant choisir un créneau ci-dessous.",
+      alignmentEmailLabel: "E-mail (suivi)",
+      alignmentNameLabel: "Nom complet",
+      alignmentPlaceholder: "Votre réponse…",
       executiveTitle: "Coaching Dirigeant",
       executiveDuration: "Tête-à-tête",
       executiveDesc:
@@ -514,6 +689,7 @@ export const translations = {
     common: {
       stayConnected: "Rester connecté",
       joinMovement: "Rejoindre le mouvement",
+      logoAlt: "Logo Alignment Press",
     },
   },
 } as const;

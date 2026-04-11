@@ -11,11 +11,9 @@ import type { Locale } from "@/lib/i18n";
 const navLinkKeys = [
   { path: "", key: "home" as const },
   { path: "book", key: "books" as const },
+  { path: "resources", key: "resources" as const },
   { path: "academy", key: "academy" as const },
   { path: "coaching", key: "coaching" as const },
-  { path: "resources", key: "resources" as const },
-  { path: "about", key: "about" as const },
-  { path: "contact", key: "contact" as const },
 ] as const;
 
 interface NavbarProps {
@@ -50,7 +48,7 @@ export default function Navbar({ locale }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between min-h-20">
           <Link href={base} className="flex items-center gap-3 group min-w-0">
-            <Logo size="sm" />
+            <Logo size="sm" alt={t.common.logoAlt} />
             <span className="font-serif text-xl tracking-wide text-white group-hover:text-gold-400 transition-colors truncate">
               Alignment Press
             </span>

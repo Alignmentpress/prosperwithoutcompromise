@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, startTransition } from "react";
 import CountdownGate from "./CountdownGate";
 import { hasGateAccess } from "@/lib/gate";
 
@@ -12,7 +12,9 @@ export default function AccessGate({
   const [hasAccess, setHasAccess] = useState<boolean | null>(null);
 
   useEffect(() => {
-    setHasAccess(hasGateAccess());
+    startTransition(() => {
+      setHasAccess(hasGateAccess());
+    });
   }, []);
 
   // Initial load: show nothing or minimal to avoid flash. We'll default to gate

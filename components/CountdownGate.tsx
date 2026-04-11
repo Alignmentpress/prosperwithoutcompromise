@@ -7,6 +7,7 @@ import Logo from "@/components/Logo";
 import { GATE_STORAGE_KEY } from "@/lib/gate";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
+import { trackLead } from "@/lib/analytics";
 
 const LAUNCH_DATE = new Date("2026-02-18T00:00:00");
 
@@ -72,6 +73,7 @@ export default function CountdownGate() {
       if (res.ok) {
         setStatus("success");
         setMessage(cg.thankYou);
+        trackLead("launch-gate");
         if (typeof window !== "undefined") {
           window.localStorage.setItem(GATE_STORAGE_KEY, "true");
         }
@@ -107,7 +109,7 @@ export default function CountdownGate() {
           <div className="golden-glow inline-block rounded-xl overflow-hidden max-w-full">
             <Image
               src="/images/book-cover.jpg"
-              alt="Prosper Without Compromise by Kevin Adou"
+              alt={t.book.coverImageAlt}
               width={220}
               height={290}
               className="rounded-xl max-w-full h-auto"
