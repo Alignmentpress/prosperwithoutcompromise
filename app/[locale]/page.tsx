@@ -141,6 +141,48 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       <HomeBooksSection locale={l} />
 
+      {/* Author services: publishing + app */}
+      <section className="home-section-y relative isolate z-0 overflow-hidden border-t border-white/[0.06] px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-[#050816]" />
+        <div className="pointer-events-none absolute inset-0 bg-home-grid opacity-35" />
+        <div className="relative z-10 mx-auto w-full max-w-6xl">
+          <header className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
+            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold-500/85">
+              {t.home.publisher.eyebrow}
+            </p>
+            <h2 className="mb-4 font-serif text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              {t.home.publisher.title}
+            </h2>
+            <p className="text-sm leading-relaxed text-gray-400 sm:text-base">{t.home.publisher.intro}</p>
+          </header>
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
+            {t.home.publisher.steps.map((step, i) => (
+              <div
+                key={step.title}
+                className="rounded-xl border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-transparent p-5 transition-colors hover:border-gold-500/20"
+              >
+                <span className="font-mono text-[11px] tabular-nums text-gold-600/50">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-2.5 mb-1.5 font-serif text-base font-semibold text-white">{step.title}</h3>
+                <p className="text-sm leading-snug text-gray-500">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 rounded-xl border border-gold-500/25 bg-gold-500/[0.06] px-5 py-5 text-center md:mt-12 md:px-8 md:py-6">
+            <p className="text-sm leading-relaxed text-gray-200 sm:text-[0.95rem]">{t.home.publisher.appLine}</p>
+          </div>
+          <div className="mt-8 text-center">
+            <Link
+              href={`/${l}/contact`}
+              className="inline-flex min-h-[46px] items-center justify-center rounded-full border border-white/20 px-8 text-sm font-medium text-white transition-colors hover:border-gold-400/35 hover:bg-white/[0.05]"
+            >
+              {t.home.publisher.ctaContact}
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Pathways + framework — one continuous band */}
       <section className="home-section-y relative isolate z-0 overflow-hidden border-t border-white/[0.06] px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-[#060a14] to-navy-950" />

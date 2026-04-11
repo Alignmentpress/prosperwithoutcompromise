@@ -71,6 +71,24 @@ export const translations = {
         intro:
           "The structured path from invisible intention to concrete reality — the same movement through Intention, Strategy, Faith, and Action that anchors Prosper Without Compromise.",
       },
+      publisher: {
+        eyebrow: "Publishing & platform",
+        title: "We help authors create and launch books",
+        intro:
+          "Beyond Kevin's teaching, Alignment Press works with people who want to turn an idea into a finished book — and reach readers through the channels that matter.",
+        steps: [
+          { title: "Ideation", desc: "Clarify your message, outline, and who the book is for." },
+          { title: "Design", desc: "Cover, interior layout, and visuals aligned with your brand." },
+          { title: "Printing", desc: "Production paths that fit your quality goals, budget, and timeline." },
+          {
+            title: "Distribution",
+            desc: "Amazon and other selling platforms so your book can be found and purchased.",
+          },
+        ],
+        appLine:
+          "We're also building a Prosper Without Compromise app — tools to bring the framework into your daily rhythm. More soon.",
+        ctaContact: "Discuss your project",
+      },
       footerCta: {
         title: "Ready to align your ambition with your values?",
         newsletter: "Join the Movement",
@@ -414,6 +432,24 @@ export const translations = {
         title: "Quatre piliers de la prospérité alignée",
         intro:
           "Le chemin structuré de l'intention invisible à la réalité concrète — le même mouvement à travers Intention, Stratégie, Foi et Action qui structure Prospérer sans perdre son âme.",
+      },
+      publisher: {
+        eyebrow: "Édition & plateforme",
+        title: "Nous aidons les auteurs à créer et lancer leur livre",
+        intro:
+          "Au-delà de l'enseignement de Kevin, Alignment Press accompagne celles et ceux qui veulent transformer une idée en livre — et toucher leurs lecteurs par les bons canaux.",
+        steps: [
+          { title: "Idéation", desc: "Affiner le message, le plan du livre et le lecteur idéal." },
+          { title: "Conception", desc: "Couverture, mise en page et visuels alignés sur votre marque." },
+          { title: "Impression", desc: "Choix de production selon vos exigences, budget et délais." },
+          {
+            title: "Distribution",
+            desc: "Amazon et autres plateformes de vente pour être visible et permettre l'achat.",
+          },
+        ],
+        appLine:
+          "Nous développons aussi une application Prospérer sans perdre son âme — des outils pour ancrer le cadre au quotidien. Plus d'informations bientôt.",
+        ctaContact: "Parler de votre projet",
       },
       footerCta: {
         title: "Prêt à aligner votre ambition avec vos valeurs ?",
