@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HomeBooksSection from "@/components/HomeBooksSection";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { AMAZON_AUTHOR_BOOKS_URL } from "@/lib/amazon";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
@@ -63,12 +64,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 >
                   {t.home.hero.ctaAlignment}
                 </Link>
-                <Link
-                  href={`/${l}/book`}
+                <a
+                  href={AMAZON_AUTHOR_BOOKS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex justify-center items-center min-h-[48px] px-8 rounded-full border border-white/18 text-white/95 text-sm font-medium hover:bg-white/[0.05] hover:border-gold-400/25 transition-all"
                 >
                   {t.home.hero.ctaBooks}
-                </Link>
+                </a>
               </div>
               <p className="mt-6 text-center lg:text-left">
                 <Link
@@ -159,13 +162,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             {t.home.publisher.steps.map((step, i) => (
               <div
                 key={step.title}
-                className="rounded-xl border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-transparent p-5 transition-colors hover:border-gold-500/20"
+                className="rounded-xl border border-white/15 bg-gradient-to-br from-white/[0.09] via-white/[0.04] to-transparent p-5 shadow-[0_8px_28px_rgba(0,0,0,0.28)] transition-colors hover:border-gold-500/35"
               >
-                <span className="font-mono text-[11px] tabular-nums text-gold-600/50">
+                <span className="font-mono text-[11px] tabular-nums text-gold-400/85">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-2.5 mb-1.5 font-serif text-base font-semibold text-white">{step.title}</h3>
-                <p className="text-sm leading-snug text-gray-500">{step.desc}</p>
+                <p className="text-sm leading-snug text-gray-200/90">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -196,11 +199,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="grid gap-4 md:grid-cols-3 md:gap-5">
             {(
               [
-                { href: `/${l}/book`, p: t.home.pillars.read },
-                { href: `/${l}/academy`, p: t.home.pillars.learn },
-                { href: `/${l}/coaching`, p: t.home.pillars.evolve },
+                { href: AMAZON_AUTHOR_BOOKS_URL, p: t.home.pillars.read, external: true },
+                { href: `/${l}/academy`, p: t.home.pillars.learn, external: false },
+                { href: `/${l}/coaching`, p: t.home.pillars.evolve, external: false },
               ] as const
-            ).map(({ href, p }) => (
+            ).map(({ href, p, external }) => (
               <article
                 key={p.title}
                 className="group flex flex-col border border-white/[0.09] rounded-xl p-6 md:p-7 bg-gradient-to-b from-white/[0.05] to-white/[0.01] hover:border-gold-500/25 hover:from-white/[0.07] transition-all duration-300"
@@ -209,15 +212,29 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <h3 className="mb-4 flex-1 font-serif text-lg font-semibold leading-snug text-white sm:text-xl">
                   {p.title}
                 </h3>
-                <Link
-                  href={href}
-                  className="inline-flex items-center gap-2 text-gold-400 text-sm font-medium group-hover:text-gold-300 transition-colors"
-                >
-                  {p.cta}
-                  <span aria-hidden className="translate-x-0 group-hover:translate-x-0.5 transition-transform">
-                    →
-                  </span>
-                </Link>
+                {external ? (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-gold-400 text-sm font-medium group-hover:text-gold-300 transition-colors"
+                  >
+                    {p.cta}
+                    <span aria-hidden className="translate-x-0 group-hover:translate-x-0.5 transition-transform">
+                      →
+                    </span>
+                  </a>
+                ) : (
+                  <Link
+                    href={href}
+                    className="inline-flex items-center gap-2 text-gold-400 text-sm font-medium group-hover:text-gold-300 transition-colors"
+                  >
+                    {p.cta}
+                    <span aria-hidden className="translate-x-0 group-hover:translate-x-0.5 transition-transform">
+                      →
+                    </span>
+                  </Link>
+                )}
               </article>
             ))}
           </div>

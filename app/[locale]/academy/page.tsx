@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import { getTranslations } from "@/lib/i18n";
-import { academyVideos } from "@/lib/academy-videos";
+import { getAcademyVideos, type VideoEntry } from "@/lib/academy-videos";
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
 
@@ -11,13 +11,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { title: t.academy.metaTitle, description: t.academy.metaDescription };
 }
 
-function VimeoEmbed({ vimeoId, title }: { vimeoId: string; title: string }) {
+function YouTubeShortEmbed({ youtubeId, title }: { youtubeId: string; title: string }) {
   return (
-    <div className="aspect-video w-full rounded-xl overflow-hidden bg-white/5">
+    <div className="aspect-[9/16] w-full overflow-hidden bg-navy-800">
       <iframe
-        src={`https://player.vimeo.com/video/${vimeoId}?title=0&byline=0&portrait=0`}
+        src={`https://www.youtube.com/embed/${youtubeId}`}
         className="w-full h-full"
-        allow="autoplay; fullscreen; picture-in-picture"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
         title={title}
       />
@@ -25,45 +25,34 @@ function VimeoEmbed({ vimeoId, title }: { vimeoId: string; title: string }) {
   );
 }
 
-function VideoCard({ entry }: { entry: (typeof academyVideos)[0] }) {
-  const content = (
+function VideoCard({ entry }: { entry: VideoEntry }) {
+  return (
     <div className="border-glow rounded-xl overflow-hidden bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 hover:border-gold-400/30 group">
-      {entry.vimeoId ? (
-        <VimeoEmbed vimeoId={entry.vimeoId} title={entry.topic} />
-      ) : (
-        <div className="aspect-video w-full bg-navy-800 flex items-center justify-center">
-          <div className="text-center p-6">
-            <div className="w-14 h-14 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-3 text-gold-400 group-hover:bg-gold-500/20 transition-colors">
-              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-            <p className="text-gray-400 text-sm">{entry.topic}</p>
-            {entry.duration && <p className="text-gray-500 text-xs mt-1">{entry.duration}</p>}
-          </div>
-        </div>
-      )}
+      <YouTubeShortEmbed youtubeId={entry.youtubeId} title={entry.topic} />
       <div className="p-4">
-        <h3 className="font-serif font-bold text-white mb-1">{entry.topic}</h3>
+        <h3 className="font-serif font-bold text-white mb-1 line-clamp-2">{entry.topic}</h3>
         <p className="text-gray-400 text-sm">{entry.description}</p>
+        <a
+          href={entry.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 font-semibold text-sm transition-colors mt-3"
+        >
+          Watch on YouTube
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
     </div>
   );
-
-  if (entry.url) {
-    return (
-      <a href={entry.url} target="_blank" rel="noopener noreferrer" className="block">
-        {content}
-      </a>
-    );
-  }
-  return content;
 }
 
 export default async function AcademyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const l = locale as Locale;
   const t = getTranslations(l);
+  const academyVideos = await getAcademyVideos();
 
   return (
     <>

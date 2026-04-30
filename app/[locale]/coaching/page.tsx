@@ -2,6 +2,7 @@ import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import CoachingBookingFlow from "@/components/CoachingBookingFlow";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -63,7 +64,34 @@ export default async function CoachingPage({ params }: { params: Promise<{ local
     </section>
   );
 
+  const coachingLeadCapture = (
+    <section className="py-20 px-4 relative">
+      <div className="absolute inset-0 bg-navy-950" />
+      <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-500/[0.05] blur-3xl" />
+      <div className="relative z-10 mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center shadow-2xl shadow-navy-950/40 sm:p-10">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-gold-400">{t.coaching.leadEyebrow}</p>
+        <h2 className="mb-4 font-serif text-3xl font-bold text-white sm:text-4xl">{t.coaching.leadTitle}</h2>
+        <p className="mx-auto mb-8 max-w-xl text-gray-400">{t.coaching.leadDesc}</p>
+        <div className="mx-auto max-w-md">
+          <LeadCaptureForm
+            source="coaching-page"
+            interest={["coaching", l]}
+            submitLabel={t.coaching.leadCta}
+            compact
+            locale={l}
+          />
+        </div>
+      </div>
+    </section>
+  );
+
   return (
-    <CoachingBookingFlow locale={l} calendlyUrl={calendlyUrl} hero={hero} tiers={tiers} />
+    <CoachingBookingFlow
+      locale={l}
+      calendlyUrl={calendlyUrl}
+      hero={hero}
+      tiers={tiers}
+      coachingLeadCapture={coachingLeadCapture}
+    />
   );
 }

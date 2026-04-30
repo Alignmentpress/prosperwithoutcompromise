@@ -24,7 +24,7 @@ export default async function AdminBlogListPage({
         <div>
           <h1 className="font-serif text-3xl text-white">Blog &amp; insights</h1>
           <p className="text-gray-500 mt-2 text-sm max-w-xl">
-            Published articles appear on the public Insights page for each language. Use SEO keywords for discoverability.
+            Published articles appear on the public Blog page for each language. Use SEO keywords for discoverability.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

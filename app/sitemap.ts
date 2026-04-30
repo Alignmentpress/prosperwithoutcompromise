@@ -10,6 +10,7 @@ const routes = [
   "/about",
   "/academy",
   "/alignment-test",
+  "/blog",
   "/book",
   "/coaching",
   "/contact",

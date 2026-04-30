@@ -14,9 +14,16 @@ interface CoachingBookingFlowProps {
   calendlyUrl: string | null;
   hero: React.ReactNode;
   tiers: React.ReactNode;
+  coachingLeadCapture: React.ReactNode;
 }
 
-export default function CoachingBookingFlow({ locale, calendlyUrl, hero, tiers }: CoachingBookingFlowProps) {
+export default function CoachingBookingFlow({
+  locale,
+  calendlyUrl,
+  hero,
+  tiers,
+  coachingLeadCapture,
+}: CoachingBookingFlowProps) {
   const t = getTranslations(locale).coaching;
   const tNav = getTranslations(locale).nav;
   const [unlocked, setUnlocked] = useState(false);
@@ -161,6 +168,8 @@ export default function CoachingBookingFlow({ locale, calendlyUrl, hero, tiers }
       )}
 
       {unlocked && tiers}
+
+      {unlocked && coachingLeadCapture}
 
       {unlocked && calendlyUrl && (
         <section className="py-24 px-4 relative">

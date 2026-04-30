@@ -164,8 +164,8 @@ export default function ContactForm({ t, locale }: ContactFormProps) {
               </div>
               <div>
                 <p className="text-white font-medium text-sm">Email</p>
-                <a href="mailto:kevin@alignmentpress.com" className="text-gray-400 text-sm hover:text-gold-400 transition-colors">
-                  kevin@alignmentpress.com
+                <a href="mailto:hello@alignmentpress.com" className="text-gray-400 text-sm hover:text-gold-400 transition-colors">
+                  hello@alignmentpress.com
                 </a>
               </div>
             </div>

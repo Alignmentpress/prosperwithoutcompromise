@@ -7,6 +7,7 @@ import type { Locale } from "@/lib/i18n";
 const footerLinkKeys = [
   { path: "", key: "home" as const },
   { path: "book", key: "books" as const },
+  { path: "blog", key: "blog" as const },
   { path: "resources", key: "resources" as const },
   { path: "academy", key: "academy" as const },
   { path: "coaching", key: "coaching" as const },
@@ -28,8 +29,10 @@ export default function Footer({ locale }: FooterProps) {
   }));
 
   return (
-    <footer className="bg-navy-950 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="relative isolate overflow-hidden border-t border-gold-500/15 bg-[#03060d] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_45%_at_50%_0%,rgba(201,168,76,0.08),transparent_65%)]" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-[4.5rem] sm:px-6 md:py-20 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <Link href={base} className="flex items-center gap-3 mb-4">
@@ -43,7 +46,7 @@ export default function Footer({ locale }: FooterProps) {
             <h4 className="text-gold-400 font-semibold text-sm uppercase tracking-wider mb-4">
               {t.footer.navigate}
             </h4>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-1 gap-x-8 gap-y-3 lg:grid-cols-2">
               {links.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-gray-400 text-sm hover:text-gold-400 transition-colors">

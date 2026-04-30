@@ -5,6 +5,7 @@ export const translations = {
     nav: {
       home: "Home",
       books: "Book",
+      blog: "Blog",
       academy: "Academy",
       coaching: "Coaching",
       about: "About",
@@ -263,6 +264,25 @@ export const translations = {
         { title: "Faith & Business Reading List", type: "Free Resource", description: "A curated list of books, articles, and talks that complement the themes of Prosper Without Compromise. Expand your understanding of aligned prosperity.", status: "available" as const },
       ],
     },
+    blog: {
+      metaTitle: "Blog | Alignment Press",
+      metaDescription:
+        "Articles from Alignment Press on leadership, alignment, prosperity, strategy, and faith by Kevin Adou.",
+      heroLabel: "Blog",
+      titlePrefix: "Notes for the ",
+      titleHighlight: "Conscious Builder",
+      subtitle:
+        "Essays and practical reflections on building with clarity, faith, peace, and strategic discipline.",
+      readArticle: "Read article",
+      emptyLabel: "Coming soon",
+      emptyTitle: "The blog is being prepared",
+      emptyDescription:
+        "Published articles will appear here as soon as they are released from the Alignment Press editorial desk.",
+      newsletterTitle: "Receive New Articles First",
+      newsletterDescription:
+        "Join the list for new essays, resources, and updates from Alignment Press.",
+      backToBlog: "Back to Blog",
+    },
     contact: {
       metaTitle: "Contact | Alignment Press",
       metaDescription:
@@ -352,6 +372,11 @@ export const translations = {
       corporateDuration: "Half-Day or Full-Day",
       corporateDesc:
         "Immersive workshops for teams. Bring the principles of aligned prosperity and conscious leadership to your organization.",
+      leadEyebrow: "Interested in coaching?",
+      leadTitle: "Tell us you want to be coached",
+      leadDesc:
+        "Leave your details and we will follow up with the next steps for private coaching or a tailored team workshop.",
+      leadCta: "I want coaching",
       bookDiscovery: "Book a Discovery Call",
       inquire: "Inquire About This Program",
       whatIncluded: "What's Included",
@@ -367,6 +392,7 @@ export const translations = {
     nav: {
       home: "Accueil",
       books: "Livre",
+      blog: "Blog",
       academy: "Académie",
       coaching: "Coaching",
       about: "À propos",
@@ -627,6 +653,25 @@ export const translations = {
         { title: "Liste de lecture Foi & Business", type: "Ressource gratuite", description: "Une liste curatée de livres, articles et conférences qui complètent les thèmes de Prospérer sans perdre son âme. Approfondissez votre compréhension de la prospérité alignée.", status: "available" as const },
       ],
     },
+    blog: {
+      metaTitle: "Blog | Alignment Press",
+      metaDescription:
+        "Articles d'Alignment Press sur le leadership, l'alignement, la prospérité, la stratégie et la foi par Kevin Adou.",
+      heroLabel: "Blog",
+      titlePrefix: "Notes pour le ",
+      titleHighlight: "bâtisseur conscient",
+      subtitle:
+        "Essais et réflexions pratiques pour construire avec clarté, foi, paix et discipline stratégique.",
+      readArticle: "Lire l'article",
+      emptyLabel: "Bientôt",
+      emptyTitle: "Le blog est en préparation",
+      emptyDescription:
+        "Les articles publiés apparaîtront ici dès leur sortie depuis l'espace éditorial Alignment Press.",
+      newsletterTitle: "Recevez les nouveaux articles en premier",
+      newsletterDescription:
+        "Rejoignez la liste pour recevoir les essais, ressources et actualités d'Alignment Press.",
+      backToBlog: "Retour au blog",
+    },
     contact: {
       metaTitle: "Contact | Alignment Press",
       metaDescription:
@@ -717,6 +762,11 @@ export const translations = {
       corporateDuration: "Demi-journée ou journée",
       corporateDesc:
         "Ateliers immersifs pour équipes. Apportez les principes de la prospérité alignée et du leadership conscient à votre organisation.",
+      leadEyebrow: "Intéressé par le coaching ?",
+      leadTitle: "Dites-nous que vous souhaitez être accompagné",
+      leadDesc:
+        "Laissez vos coordonnées et nous vous recontacterons pour les prochaines étapes, en coaching privé ou en atelier sur mesure pour votre équipe.",
+      leadCta: "Je veux être accompagné",
       bookDiscovery: "Réserver un appel découverte",
       inquire: "En savoir plus sur ce programme",
       whatIncluded: "Ce qui est inclus",

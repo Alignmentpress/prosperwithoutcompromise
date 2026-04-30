@@ -116,7 +116,7 @@ export default function BlogEditorForm({ post }: { post: BlogPostRow }) {
         <div>
           <h1 className="font-serif text-2xl sm:text-3xl text-white">Edit article</h1>
           <p className="text-sm text-gray-500 mt-1">
-            Rich content, SEO keywords, and locale — published posts appear under Insights.
+            Rich content, SEO keywords, and locale — published posts appear on the public Blog.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

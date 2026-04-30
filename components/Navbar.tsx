@@ -11,9 +11,11 @@ import type { Locale } from "@/lib/i18n";
 const navLinkKeys = [
   { path: "", key: "home" as const },
   { path: "book", key: "books" as const },
+  { path: "blog", key: "blog" as const },
   { path: "resources", key: "resources" as const },
   { path: "academy", key: "academy" as const },
   { path: "coaching", key: "coaching" as const },
+  { path: "contact", key: "contact" as const },
 ] as const;
 
 interface NavbarProps {

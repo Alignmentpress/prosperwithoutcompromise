@@ -45,7 +45,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ loca
               {cmsPosts.map((post) => (
                 <Link
                   key={post.id}
-                  href={`/${l}/resources/${post.slug}`}
+                  href={`/${l}/blog/${post.slug}`}
                   className="group border-glow rounded-xl p-6 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 hover:border-gold-400/30 flex flex-col text-left"
                 >
                   <h3 className="font-serif text-xl font-bold text-white mb-3 group-hover:text-gold-200 transition-colors">

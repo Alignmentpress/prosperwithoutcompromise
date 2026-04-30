@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BookShowcase from "@/components/BookShowcase";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { AMAZON_AUTHOR_BOOKS_URL } from "@/lib/amazon";
 import type { Locale } from "@/lib/i18n";
 
 export default function HomePage({ basePath = "" }: { basePath?: string }) {
@@ -38,12 +39,14 @@ export default function HomePage({ basePath = "" }: { basePath?: string }) {
                 and Action.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link
-                  href={`${basePath}/book`}
+                <a
+                  href={AMAZON_AUTHOR_BOOKS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-semibold rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg shadow-gold-500/20 text-base"
                 >
                   Get the Book
-                </Link>
+                </a>
                 <Link
                   href={`${basePath}/about`}
                   className="px-8 py-4 border border-white/10 text-white rounded-lg hover:bg-white/5 hover:border-gold-400/30 transition-all duration-300 text-base"
