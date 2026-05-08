@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import HomeBooksSection from "@/components/HomeBooksSection";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import TrackedAmazonLink from "@/components/TrackedAmazonLink";
+import TrackedCtaLink from "@/components/TrackedCtaLink";
 import { AMAZON_AUTHOR_BOOKS_URL } from "@/lib/amazon";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
@@ -64,14 +66,16 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 >
                   {t.home.hero.ctaAlignment}
                 </Link>
-                <a
+                <TrackedAmazonLink
                   href={AMAZON_AUTHOR_BOOKS_URL}
+                  placement="home_hero_cta_book"
+                  locale={l}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex justify-center items-center min-h-[48px] px-8 rounded-full border border-white/18 text-white/95 text-sm font-medium hover:bg-white/[0.05] hover:border-gold-400/25 transition-all"
                 >
                   {t.home.hero.ctaBooks}
-                </a>
+                </TrackedAmazonLink>
               </div>
               <p className="mt-6 text-center lg:text-left">
                 <Link
@@ -213,8 +217,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   {p.title}
                 </h3>
                 {external ? (
-                  <a
+                  <TrackedAmazonLink
                     href={href}
+                    placement="home_pathway_read"
+                    locale={l}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-gold-400 text-sm font-medium group-hover:text-gold-300 transition-colors"
@@ -223,7 +229,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <span aria-hidden className="translate-x-0 group-hover:translate-x-0.5 transition-transform">
                       →
                     </span>
-                  </a>
+                  </TrackedAmazonLink>
                 ) : (
                   <Link
                     href={href}
@@ -273,12 +279,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               ))}
             </div>
             <div className="text-center mt-9">
-              <Link
+              <TrackedCtaLink
                 href={`/${l}/book`}
+                ctaId="home_four_pillars_book_showcase"
+                locale={l}
                 className="inline-flex justify-center items-center min-h-[46px] px-7 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 text-sm font-semibold tracking-wide shadow-md shadow-gold-900/20 hover:from-gold-400 hover:to-gold-500 transition-all"
               >
                 {t.bookShowcase.cta}
-              </Link>
+              </TrackedCtaLink>
             </div>
           </div>
         </div>

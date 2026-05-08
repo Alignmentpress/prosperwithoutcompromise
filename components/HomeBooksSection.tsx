@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import TrackedAmazonLink from "@/components/TrackedAmazonLink";
 import { getAmazonUrlsForLocale } from "@/lib/amazon";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
@@ -64,14 +65,30 @@ export default function HomeBooksSection({ locale }: HomeBooksSectionProps) {
                 aria-label={labels.buyAmazonUs}
               >
                 {amazon.us ? (
-                  <a href={amazon.us} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
+                  <TrackedAmazonLink
+                    href={amazon.us}
+                    placement="home_books_section"
+                    marketplace="us"
+                    locale={locale}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={btnPrimary}
+                  >
                     {labels.buyAmazonUs}
-                  </a>
+                  </TrackedAmazonLink>
                 ) : null}
                 {amazon.fr ? (
-                  <a href={amazon.fr} target="_blank" rel="noopener noreferrer" className={btnGhost}>
+                  <TrackedAmazonLink
+                    href={amazon.fr}
+                    placement="home_books_section"
+                    marketplace="fr"
+                    locale={locale}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={btnGhost}
+                  >
                     {labels.buyAmazonFr}
-                  </a>
+                  </TrackedAmazonLink>
                 ) : null}
               </div>
             ) : (

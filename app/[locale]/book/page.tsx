@@ -1,5 +1,6 @@
 import Image from "next/image";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import TrackedAmazonLink from "@/components/TrackedAmazonLink";
 import { getAmazonUrlsForLocale } from "@/lib/amazon";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
@@ -87,28 +88,34 @@ export default async function BookPage({ params }: { params: Promise<{ locale: s
                 aria-label={hasAmazon ? labels.buyAmazonUs : t.book.purchaseLinksComingSoon}
               >
                 {amazon.us ? (
-                  <a
+                  <TrackedAmazonLink
                     href={amazon.us}
+                    placement="book_page_hero"
+                    marketplace="us"
+                    locale={l}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 py-3 min-h-[44px] inline-flex items-center bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-semibold rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg shadow-gold-500/20"
                   >
                     {labels.buyAmazonUs}
-                  </a>
+                  </TrackedAmazonLink>
                 ) : (
                   <span className="px-6 py-3 min-h-[44px] inline-flex items-center bg-gradient-to-r from-gold-500/50 to-gold-600/50 text-navy-950/80 font-semibold rounded-lg opacity-60 cursor-not-allowed">
                     {labels.buyAmazonUs}
                   </span>
                 )}
                 {amazon.fr ? (
-                  <a
+                  <TrackedAmazonLink
                     href={amazon.fr}
+                    placement="book_page_hero"
+                    marketplace="fr"
+                    locale={l}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 py-3 min-h-[44px] inline-flex items-center border border-white/15 text-white rounded-lg hover:bg-white/5 hover:border-gold-400/30 transition-all font-semibold"
                   >
                     {labels.buyAmazonFr}
-                  </a>
+                  </TrackedAmazonLink>
                 ) : (
                   <span className="px-6 py-3 min-h-[44px] inline-flex items-center border border-white/10 text-white/50 rounded-lg opacity-60 cursor-not-allowed">
                     {labels.buyAmazonFr}

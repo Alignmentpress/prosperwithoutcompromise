@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
 import { getTranslations } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
-import { trackLead } from "@/lib/analytics";
+import { trackCoachingCalendlyView, trackLead } from "@/lib/analytics";
 
 const COACHING_GATE_KEY = "alignmentpress_coaching_aligned";
 
@@ -38,6 +38,7 @@ export default function CoachingBookingFlow({
   const [q4, setQ4] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const calendlyViewTracked = useRef(false);
 
   useEffect(() => {
     if (!calendlyUrl) {
@@ -53,6 +54,13 @@ export default function CoachingBookingFlow({
       setChecking(false);
     }
   }, [calendlyUrl]);
+
+  useEffect(() => {
+    if (unlocked && calendlyUrl && !calendlyViewTracked.current) {
+      calendlyViewTracked.current = true;
+      trackCoachingCalendlyView({ locale });
+    }
+  }, [unlocked, calendlyUrl, locale]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,7 +89,7 @@ export default function CoachingBookingFlow({
       sessionStorage.setItem(COACHING_GATE_KEY, "1");
       setUnlocked(true);
       setJustSubmitted(true);
-      trackLead("coaching-alignment");
+      trackLead("coaching-alignment", { interest: ["coaching", "alignment-gate"] });
       setStatus("idle");
     } catch {
       setStatus("error");

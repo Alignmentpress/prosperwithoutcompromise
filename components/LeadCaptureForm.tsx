@@ -52,7 +52,7 @@ export default function LeadCaptureForm({
         setMessage(t.success);
         setFirstName("");
         setEmail("");
-        trackLead(source);
+        trackLead(source, { interest });
       } else {
         setStatus("error");
         setMessage(data.error || t.errorGeneric);
